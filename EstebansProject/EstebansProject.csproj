@@ -46,7 +46,7 @@
     <Compile Include="IdentifyCycles.cs" />
     <Compile Include="IdentifyDuplicates.cs" />
     <Compile Include="KnownValues.cs" />
-    <Compile Include="UncleanLinkedListNode.cs" />
+    <Compile Include="QuickLinkedListNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
