@@ -20,9 +20,9 @@ namespace EstebansProject
             SimpleTest("* {0}, Collection is Null", false, (Func<bool>)(() => IdentifyDuplicates.HasDuplicates(null)));
 
             #endregion
-            #region Test Circular References
+            #region Test Cyclical References
 
-            Console.WriteLine("Testing Duplicate Integers");
+            Console.WriteLine("Testing Cyclical References");
 
             SimpleTest("* {0}, Collection Contains Cyclical References", true, (Func<bool>)(() => IdentifyCycles.HasCycles(KnownValues.GetLinkedListWithCyclicalReferences())));
             SimpleTest("* {0}, Collection Contains NO Cyclical References", false, (Func<bool>)(() => IdentifyCycles.HasCycles(KnownValues.GetLinkedList())));
