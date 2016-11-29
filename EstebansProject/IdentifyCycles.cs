@@ -13,8 +13,10 @@ namespace EstebansProject
         /// </summary>
         public static bool HasCycles<T>(QuickLinkedListNode<T> node)
         {
-            if (!CheckForValues(node, node))
+            if (!CanContinue(node, node))
+            {
                 return false; // Node is null and so there are no circular references.
+            }
 
             return FloydsCycleAlgoritym(node, node.Next.Next);
         }
@@ -26,24 +28,30 @@ namespace EstebansProject
         /// <returns>True if cycle exists</returns>
         private static bool FloydsCycleAlgoritym<T>(QuickLinkedListNode<T> tortoise, QuickLinkedListNode<T> hair)
         {
-            if (!CheckForValues(tortoise, hair))
+            if (!CanContinue(tortoise, hair)) // One or Both Racers found the end of the list
+            {
                 return false;
-
-            if (tortoise == hair)
+            }
+            if (tortoise == hair) // The two racers caught up to each other, indicating a cyclical loop in the linked list
+            {
                 return true;
+            }
 
-            return FloydsCycleAlgoritym(tortoise.Next, hair.Next.Next);
+            return FloydsCycleAlgoritym(tortoise.Next, hair.Next.Next); // Continue the race with the hair going twice as fast as the tortoise
         }
 
-        private static bool CheckForValues<T>(QuickLinkedListNode<T> tortoise, QuickLinkedListNode<T> hair)
+        /// <summary>
+        /// Checks the links of the nodes to verify that Floyds Cycle Algorithm can continue
+        /// </summary>
+        private static bool CanContinue<T>(QuickLinkedListNode<T> tortoise, QuickLinkedListNode<T> hair)
         {
-            if (tortoise == null || hair == null)
+            if (tortoise == null || hair == null) // One of the two racers have found the end of the list
                 return false;
 
-            if (hair.Next == null)
+            if (hair.Next == null) // Hair is twice as fast. Therefor, we need to check the node that he skips to see if it is the end of the list
                 return false;
 
-            return true;
+            return true; // Both tortoise and hair can safely continue forward
         }
     }
 }

@@ -37,8 +37,6 @@ namespace EstebansProject
         /// Wraps method in a try catch, printing true, false, or error
         /// </summary>
         /// <param name="messageFormat">Must contain one format argument</param>
-        /// <param name="expected"></param>
-        /// <param name="method"></param>
         private static void SimpleTest(string messageFormat, bool expected, Func<bool> method)
         {
             try

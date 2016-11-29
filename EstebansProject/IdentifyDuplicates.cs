@@ -17,8 +17,9 @@ namespace EstebansProject
             if (intArray == null)
                 return false; // if the array is null then there are no duplicates
 
-            HashSet<int> set = new HashSet<int>(intArray);
-            return set.Count() < intArray.Count();
+            HashSet<int> set = new HashSet<int>(intArray); // Unique list of ints from the intArray
+
+            return set.Count() < intArray.Count(); // The set will be less if duplicates exist in the intArray
         }
     }
 }

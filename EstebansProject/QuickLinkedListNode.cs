@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EstebansProject
 {
+    /// <summary>
+    /// Very simple node for a linked list that allows for cyclical references. 
+    /// </summary>
     public class QuickLinkedListNode<T> 
     {
         public T Value { get; set; }
